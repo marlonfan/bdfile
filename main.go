@@ -88,6 +88,8 @@ var helpTemplate = `a small tool for download some file, like image excel, html 
 	output dir
 -t int
 	tread number (default 10)
+-s bool
+	in case of strict mode, an error will terminate the operation
 example:
 	bdfile -t 10 -o ./output_dir -i 'http://baidu.com/1.png,http://baidu.com/2.png'`
 
