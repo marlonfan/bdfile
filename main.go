@@ -137,7 +137,7 @@ func main() {
 }
 
 func downloadFile(file, path string) {
-	err := os.Mkdir(path, os.ModePerm)
+	err := os.MkdirAll(path, os.ModePerm)
 	if err != nil {
 		check(file, err)
 	}
@@ -170,7 +170,7 @@ func downloadFile(file, path string) {
 }
 
 func check(file string, err error) {
-	fmt.Fprintf(os.Stderr, "%s download err, reason: %s", file, err.Error())
+	fmt.Fprintf(os.Stderr, "%s download err, reason: %s\n", file, err.Error())
 	if strictMode {
 		os.Exit(1)
 	}
