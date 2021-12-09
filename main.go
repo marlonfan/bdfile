@@ -142,6 +142,7 @@ func downloadFile(file, path string) {
 	err := os.MkdirAll(path, os.ModePerm)
 	if err != nil {
 		check(file, err)
+		return
 	}
 	resp, err := httpClient.Get(file)
 	if err != nil {
@@ -163,6 +164,7 @@ func downloadFile(file, path string) {
 	writer, err := os.Create(filepath.Join(path, filename))
 	if err != nil {
 		check(file, err)
+		return
 	}
 
 	_, err = io.Copy(writer, resp.Body)
